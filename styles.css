@@ -1,0 +1,325 @@
+:root {
+    --bg-color: #0c0a0a;
+    /* Darker, more futuristic base */
+    --accent-primary: #771e2e;
+    /* User requested color */
+    --accent-secondary: #D4AF37;
+    /* Gold constant */
+    --accent-glow: rgba(119, 30, 46, 0.4);
+    --text-main: #ffffff;
+    --text-light: #b0a0a0;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Background Image with Overlay */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(12, 10, 10, 0.8), rgba(12, 10, 10, 0.6)), url('passion_brand_bg.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+/* Futuristic Grid */
+.background-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+.profile-header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.logo-container {
+    margin-bottom: -10px;
+}
+
+.brand-logo-img {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+}
+
+.brand-tagline {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: var(--accent-secondary);
+    display: block;
+    margin-top: -5px;
+}
+
+.bio-text {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* Links Section */
+.links-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.link-card {
+    text-decoration: none;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+    /* Sharper geometry */
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: var(--shadow);
+    color: var(--text-main);
+    animation: fadeInUp 0.8s ease-out both;
+    position: relative;
+    overflow: hidden;
+}
+
+.link-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.link-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.link-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.link-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.link-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    transition: 0.5s;
+}
+
+.link-card:hover::before {
+    left: 100%;
+}
+
+.link-card:hover {
+    transform: translateX(8px);
+    border-color: var(--accent-secondary);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.link-card.highlight {
+    background: var(--accent-primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.link-card.highlight:hover {
+    box-shadow: 0 0 30px var(--accent-glow);
+    transform: translateX(12px);
+    background: #8B2336;
+}
+
+.icon-box {
+    font-size: 1.5rem;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    /* White icons as requested */
+}
+
+.highlight .icon-box {
+    color: #fff;
+}
+
+.link-card .content {
+    flex: 1;
+}
+
+.link-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+}
+
+.link-card p {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.arrow {
+    font-size: 0.9rem;
+    opacity: 0.5;
+}
+
+/* Footer */
+.social-footer {
+    margin-top: 60px;
+    text-align: center;
+    animation: fadeIn 1.2s ease-out both;
+    animation-delay: 0.5s;
+}
+
+.social-icons {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    color: #ffffff;
+    /* White social icons */
+    font-size: 1.4rem;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--accent-secondary);
+    transform: scale(1.2);
+}
+
+.copyright {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Scanner Line Animation */
+.background-overlay::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, rgba(119, 30, 46, 0.1), transparent);
+    animation: scanner 8s linear infinite;
+    z-index: 10;
+    pointer-events: none;
+}
+
+@keyframes scanner {
+    0% {
+        top: -100px;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 375px) {
+    .container {
+        padding: 30px 15px;
+    }
+
+    .link-card {
+        padding: 15px 20px;
+    }
+}
