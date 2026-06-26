@@ -239,7 +239,7 @@ body {
     display: flex;
     gap: 25px;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
 }
 
 .social-icons a {
@@ -255,10 +255,13 @@ body {
 }
 
 .copyright {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    display: block;
+    width: 190px;
+    max-width: 52vw;
+    height: auto;
+    margin: 0 auto;
+    opacity: 1;
+    filter: brightness(1.35) contrast(1.25) drop-shadow(0 0 6px rgba(255, 255, 255, 0.28));
 }
 
 /* Animations */
@@ -362,7 +365,7 @@ body {
 
     .social-icons {
         gap: 22px;
-        margin-bottom: 14px;
+        margin-bottom: 6px;
     }
 }
 
