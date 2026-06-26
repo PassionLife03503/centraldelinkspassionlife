@@ -191,7 +191,7 @@ body {
 .link-card.highlight:hover {
     box-shadow: 0 0 30px var(--accent-glow);
     transform: translateX(12px);
-    background: #8B2336;
+    background: #8B2339;
 }
 
 .icon-box {
@@ -212,7 +212,7 @@ body {
 }
 
 .link-card h3 {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: 1.15rem;
     margin-bottom: 4px;
 }
