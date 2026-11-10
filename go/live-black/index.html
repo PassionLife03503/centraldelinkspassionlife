@@ -176,7 +176,9 @@ href="https://wa.me/553598979741?text=Gostaria%20de%20ver%20os%20produtos%20da%2
     <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments) }; document.querySelectorAll('[data-destination]').forEach((button) => button.addEventListener('click', () => { const destination = button.dataset.destination; const params = new URLSearchParams(location.search); const source = params.get('utm_source') || 'direct'; const campaign = params.get('utm_campaign') || 'live-black'; if (typeof clarity === 'function') { clarity('event', 'live_black_click'); clarity('set', 'live_black_destination', destination); clarity('set', 'live_black_source', source) } if (typeof window.va === 'function') window.va('event', 'live_black_click', { destination, source, campaign }) }));</script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script>
-        const CLICK_ENDPOINT = '/api/live-black-click';
+        const CLICK_ENDPOINT = window.location.hostname === 'localhost'
+            ? 'https://script.google.com/macros/s/AKfycbw7qwFKXdT75KRazqY3b1nPMoZ2ZcXiIn19IH3KIJtelJiCn-QCmnWTd4R8HhBnT4GK/exec'
+            : '/api/live-black-click';
         document.querySelectorAll('[data-destination]').forEach((button) => {
             button.addEventListener('click', () => {
                 const params = new URLSearchParams(window.location.search);
